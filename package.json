@@ -4,7 +4,7 @@
   "description": "Natorus API using Express and MongoDB",
   "main": "app.js",
   "scripts": {
-    "start:dev": "nodemon server.js"
+    "dev": "nodemon server.js"
   },
   "author": "Prashant Aryal",
   "license": "ISC",
@@ -24,5 +24,8 @@
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.33.2",
     "prettier": "^3.0.3"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }

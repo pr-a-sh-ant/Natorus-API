@@ -4,8 +4,9 @@
   "description": "Natorus API using Express and MongoDB",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "debug": "ndb server.js"
+    "start": "nodemon server.js",
+    "debug": "ndb server.js",
+    "start:prodc": "NODE_ENV=production nodemon server.js"
   },
   "author": "Prashant Aryal",
   "license": "ISC",

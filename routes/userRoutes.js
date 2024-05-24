@@ -7,17 +7,19 @@ const Router = express.Router();
 
 Router.post('/signup', authController.signup);
 Router.post('/login', authController.login);
-
 Router.post('/forgotPassword', authController.forgetPassword);
 Router.patch('/resetPassword/:token', authController.resetPassword);
-Router.patch(
-  '/updateMyPassword',
-  authController.protect,
-  authController.updatePassword,
-);
-Router.patch('/updateMe', authController.protect, userController.updateMe);
-Router.delete('/deleteMe', authController.protect, userController.deleteMe);
 
+Router.use(authController.protect);
+
+Router.patch('/updateMyPassword', authController.updatePassword);
+
+Router.get('/me', userController.getMe, userController.getUser);
+Router.patch('/updateMe', userController.updateMe);
+Router.delete('/deleteMe', userController.deleteMe);
+
+//Protect so can only be used by admin
+Router.use(authController.restrictTo('admin'));
 Router.route('/')
   .get(userController.getAllUsers)
   .post(userController.createUser);

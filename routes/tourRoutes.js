@@ -38,6 +38,12 @@ Router.route('/:id')
     tourController.deleteTour,
   );
 
+Router.route('/tours-within/:distance/center/:latlng/unit/:unit').get(
+  tourController.getToursWithin,
+);
+
+Router.route('/distances/:latlng/unit/:unit').get(tourController.getDistances);
+
 Router.route('/:tourid/reviews').post(
   authController.protect,
   authController.restrictTo('user'),

@@ -24,7 +24,18 @@ exports.getTour = catchAsync(async (req, res, next) => {
 
   // 3) Render template using the data from 1)
   res.status(200).render('tour', {
-    title: 'The Forest Hiker',
+    title: `${tour.name} Tour`,
     tour,
+  });
+});
+
+exports.getLogin = catchAsync(async (req, res, next) => {
+  res.status(200).render('login', {
+    title: 'Log into your account',
+  });
+});
+exports.getSignup = catchAsync(async (req, res, next) => {
+  res.status(200).render('sign-up', {
+    title: 'Log into your account',
   });
 });
